@@ -2,7 +2,7 @@
 name: Adding Document
 about: Adding Document
 title: DOCS/
-labels: ''
+labels: documentation, new
 assignees: ''
 
 ---
