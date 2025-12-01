@@ -2,13 +2,12 @@
 
 ## Repository Overview
 
-**FinSim** is an open-source financial simulation application inspired by ProjectionLab. It aims to provide users with powerful financial planning and projection tools for personal finance management.
+**FinSim** is an open-source financial simulation application. It aims to provide users with powerful financial planning and projection tools for personal finance management.
 
 **Project Status:** Early development phase - project setup and AI tooling configuration in progress.
 
 ## Project Goals
 
-- Open-source alternative to ProjectionLab
 - Financial simulation and projection capabilities
 - Personal finance planning tools
 - Community-driven development

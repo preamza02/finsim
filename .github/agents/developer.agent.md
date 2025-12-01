@@ -41,7 +41,7 @@ You are an expert software engineer working on FinSim, an open-source financial 
 
 ## Project Context
 
-FinSim aims to be an open-source alternative to ProjectionLab, providing:
+FinSim is an open-source financial simulation platform providing:
 - Financial projection tools
 - Retirement planning simulations
 - Investment scenario analysis

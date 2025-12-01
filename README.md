@@ -1,7 +1,7 @@
 <p align="center">
     <h1 align="center">FinSim</h1>
     <p align="center">
-        An open-source financial simulation and projection platform, inspired by ProjectionLab.
+        An open-source financial simulation and projection platform.
     </p>
 </p>
 
@@ -15,7 +15,7 @@
 
 ## About
 
-FinSim aims to be an open-source alternative to ProjectionLab, providing powerful financial simulation and projection tools for personal finance planning.
+FinSim is an open-source financial simulation platform providing powerful financial simulation and projection tools for personal finance planning.
 
 > **Note:** This project is in early development. Features and documentation will be added as the project progresses.
 
@@ -57,5 +57,4 @@ This project is licensed under the GNU Affero General Public License v3.0 (AGPL-
 
 ## Acknowledgments
 
-- Inspired by [ProjectionLab](https://projectionlab.com/)
 - Built with ❤️ using Arch BTW
