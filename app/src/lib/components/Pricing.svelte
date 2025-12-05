@@ -4,7 +4,11 @@
   // Helper to detect external links
   function isExternalLink(href: string): boolean {
     if (!href) return false;
-    return /^(https?:)?\/\//.test(href) || href.startsWith('mailto:') || href.startsWith('tel:');
+    return (
+      /^(https?:)?\/\//.test(href) ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:")
+    );
   }
 
   const cloudPlans = [
@@ -12,7 +16,8 @@
       name: "Free",
       price: "฿0",
       period: "Forever",
-      description: "For users who are just starting their financial freedom journey.",
+      description:
+        "For users who are just starting their financial freedom journey.",
       features: [
         "Plan Saved (Read-only)",
         "1 Financial Plan",
