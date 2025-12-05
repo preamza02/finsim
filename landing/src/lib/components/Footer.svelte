@@ -11,7 +11,7 @@
     resources: [
       { label: 'Getting Started', href: '#docs' },
       { label: 'API Reference', href: '#docs' },
-      { label: 'Examples', href: 'https://github.com/preamza02/finsim/examples', external: true },
+      { label: 'Examples', href: 'https://github.com/preamza02/finsim/tree/main/examples', external: true },
       { label: 'Blog', href: '#' },
     ],
     community: [
