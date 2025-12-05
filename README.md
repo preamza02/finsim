@@ -13,6 +13,10 @@
 
 </div>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7d5aa36d-e87d-4968-a46b-c7189fd54e42" alt="FinSim Landing Page" width="600">
+</p>
+
 ## About
 
 FinSim is an open-source financial simulation platform providing powerful financial simulation and projection tools for personal finance planning.
