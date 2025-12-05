@@ -130,6 +130,8 @@
 
             <a 
               href={plan.ctaLink}
+              target={plan.ctaLink.startsWith('http') ? '_blank' : undefined}
+              rel={plan.ctaLink.startsWith('http') ? 'noopener noreferrer' : undefined}
               class="block w-full text-center py-3 px-4 rounded-lg font-semibold text-sm transition-colors duration-200 {plan.highlighted ? 'bg-primary-600 hover:bg-primary-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}"
             >
               {plan.cta}
