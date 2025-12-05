@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 # CodeRabbit Configuration
 # Documentation: https://docs.coderabbit.ai/guides/configure-coderabbit
 
@@ -51,22 +52,3 @@ knowledge_base:
 
 # Early access features
 early_access: false
-
-# Tools configuration
-tools:
-  # Shellcheck for shell scripts
-  shellcheck:
-    enabled: true
-
-  # Ruff for Python linting
-  ruff:
-    enabled: true
-
-  # Markdownlint for markdown files
-  markdownlint:
-    enabled: true
-
-  # GitHub checks
-  github-checks:
-    enabled: true
-    timeout_ms: 90000
