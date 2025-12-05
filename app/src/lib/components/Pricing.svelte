@@ -1,12 +1,18 @@
 <script lang="ts">
   let selectedView: "cloud" | "opensource" = "cloud";
 
+  // Helper to detect external links
+  function isExternalLink(href: string): boolean {
+    if (!href) return false;
+    return /^(https?:)?\/\//.test(href) || href.startsWith('mailto:') || href.startsWith('tel:');
+  }
+
   const cloudPlans = [
     {
       name: "Free",
       price: "฿0",
       period: "Forever",
-      description: "For user who just start the financial freedom journey",
+      description: "For users who are just starting their financial freedom journey.",
       features: [
         "Plan Saved (Read-only)",
         "1 Financial Plan",
@@ -154,8 +160,8 @@
 
             <a
               href={plan.ctaLink}
-              target={plan.ctaLink.startsWith("http") ? "_blank" : undefined}
-              rel={plan.ctaLink.startsWith("http")
+              target={isExternalLink(plan.ctaLink) ? "_blank" : undefined}
+              rel={isExternalLink(plan.ctaLink)
                 ? "noopener noreferrer"
                 : undefined}
               class="block w-full text-center py-3 px-4 rounded-lg font-semibold text-sm transition-colors duration-200 {plan.highlighted

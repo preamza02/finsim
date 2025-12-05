@@ -64,9 +64,11 @@
       {#each faqs as faq, index}
         <div class="border-b border-gray-200">
           <button
+            id="faq-button-{index}"
             class="w-full py-6 flex items-center justify-between text-left"
             on:click={() => toggle(index)}
             aria-expanded={openIndex === index}
+            aria-controls="faq-panel-{index}"
           >
             <span class="text-lg font-medium text-gray-900 pr-4"
               >{faq.question}</span
@@ -79,6 +81,7 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -89,7 +92,12 @@
             </svg>
           </button>
           {#if openIndex === index}
-            <div class="pb-6">
+            <div 
+              id="faq-panel-{index}" 
+              class="pb-6"
+              role="region"
+              aria-labelledby="faq-button-{index}"
+            >
               <p class="text-gray-600">{faq.answer}</p>
             </div>
           {/if}

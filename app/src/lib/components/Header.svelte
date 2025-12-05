@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+  
   let mobileMenuOpen = false;
 
   const navLinks = [
@@ -7,6 +9,28 @@
     { href: '#pricing', label: 'Pricing' },
     { href: 'https://github.com/preamza02/finsim', label: 'GitHub', external: true },
   ];
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && mobileMenuOpen) {
+      mobileMenuOpen = false;
+    }
+  }
+
+  function handleClickOutside(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (mobileMenuOpen && !target.closest('nav')) {
+      mobileMenuOpen = false;
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('keydown', handleKeydown);
+      document.removeEventListener('click', handleClickOutside);
+    };
+  });
 </script>
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -48,9 +72,11 @@
       <button 
         class="md:hidden p-2 text-gray-600 hover:text-gray-900"
         aria-label="Toggle menu"
+        aria-expanded={mobileMenuOpen}
+        aria-controls="mobile-menu"
         on:click={() => mobileMenuOpen = !mobileMenuOpen}
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
@@ -58,7 +84,7 @@
 
     <!-- Mobile Navigation -->
     {#if mobileMenuOpen}
-      <div class="md:hidden pb-4">
+      <div id="mobile-menu" class="md:hidden pb-4" role="menu">
         {#each navLinks as link}
           <a 
             href={link.href} 
