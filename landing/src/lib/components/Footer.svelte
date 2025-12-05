@@ -1,32 +1,32 @@
----
-const currentYear = new Date().getFullYear();
+<script lang="ts">
+  const currentYear = new Date().getFullYear();
 
-const footerLinks = {
-  product: [
-    { label: 'Features', href: '#features' },
-    { label: 'Documentation', href: '#docs' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Roadmap', href: 'https://github.com/preamza02/finsim/projects' },
-  ],
-  resources: [
-    { label: 'Getting Started', href: '#docs' },
-    { label: 'API Reference', href: '#docs' },
-    { label: 'Examples', href: 'https://github.com/preamza02/finsim/examples' },
-    { label: 'Blog', href: '#' },
-  ],
-  community: [
-    { label: 'GitHub', href: 'https://github.com/preamza02/finsim' },
-    { label: 'Discussions', href: 'https://github.com/preamza02/finsim/discussions' },
-    { label: 'Issues', href: 'https://github.com/preamza02/finsim/issues' },
-    { label: 'Contributing', href: 'https://github.com/preamza02/finsim/blob/main/CONTRIBUTING.md' },
-  ],
-  legal: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'License', href: 'https://github.com/preamza02/finsim/blob/main/LICENSE' },
-  ],
-};
----
+  const footerLinks = {
+    product: [
+      { label: 'Features', href: '#features' },
+      { label: 'Documentation', href: '#docs' },
+      { label: 'Pricing', href: '#pricing' },
+      { label: 'Roadmap', href: 'https://github.com/preamza02/finsim/projects', external: true },
+    ],
+    resources: [
+      { label: 'Getting Started', href: '#docs' },
+      { label: 'API Reference', href: '#docs' },
+      { label: 'Examples', href: 'https://github.com/preamza02/finsim/examples', external: true },
+      { label: 'Blog', href: '#' },
+    ],
+    community: [
+      { label: 'GitHub', href: 'https://github.com/preamza02/finsim', external: true },
+      { label: 'Discussions', href: 'https://github.com/preamza02/finsim/discussions', external: true },
+      { label: 'Issues', href: 'https://github.com/preamza02/finsim/issues', external: true },
+      { label: 'Contributing', href: 'https://github.com/preamza02/finsim/blob/main/CONTRIBUTING.md', external: true },
+    ],
+    legal: [
+      { label: 'Privacy Policy', href: '#' },
+      { label: 'Terms of Service', href: '#' },
+      { label: 'License', href: 'https://github.com/preamza02/finsim/blob/main/LICENSE', external: true },
+    ],
+  };
+</script>
 
 <footer class="bg-gray-900 text-gray-300">
   <div class="container-custom py-16">
@@ -43,8 +43,8 @@ const footerLinks = {
           <span class="text-xl font-bold text-white">FinSim</span>
         </a>
         <p class="text-gray-400 mb-6 max-w-xs">
-          Open source financial simulation tool. 
-          Plan your retirement with confidence.
+          Your Life Operating System for financial planning. 
+          Design your wealthy life with confidence.
         </p>
         <div class="flex space-x-4">
           <a href="https://github.com/preamza02/finsim" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
@@ -64,18 +64,18 @@ const footerLinks = {
       <div>
         <h4 class="text-white font-semibold mb-4">Product</h4>
         <ul class="space-y-3">
-          {footerLinks.product.map(link => (
+          {#each footerLinks.product as link}
             <li>
               <a 
                 href={link.href} 
                 class="text-gray-400 hover:text-white transition-colors"
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
               >
                 {link.label}
               </a>
             </li>
-          ))}
+          {/each}
         </ul>
       </div>
 
@@ -83,18 +83,18 @@ const footerLinks = {
       <div>
         <h4 class="text-white font-semibold mb-4">Resources</h4>
         <ul class="space-y-3">
-          {footerLinks.resources.map(link => (
+          {#each footerLinks.resources as link}
             <li>
               <a 
                 href={link.href} 
                 class="text-gray-400 hover:text-white transition-colors"
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
               >
                 {link.label}
               </a>
             </li>
-          ))}
+          {/each}
         </ul>
       </div>
 
@@ -102,18 +102,18 @@ const footerLinks = {
       <div>
         <h4 class="text-white font-semibold mb-4">Community</h4>
         <ul class="space-y-3">
-          {footerLinks.community.map(link => (
+          {#each footerLinks.community as link}
             <li>
               <a 
                 href={link.href} 
                 class="text-gray-400 hover:text-white transition-colors"
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
               >
                 {link.label}
               </a>
             </li>
-          ))}
+          {/each}
         </ul>
       </div>
 
@@ -121,18 +121,18 @@ const footerLinks = {
       <div>
         <h4 class="text-white font-semibold mb-4">Legal</h4>
         <ul class="space-y-3">
-          {footerLinks.legal.map(link => (
+          {#each footerLinks.legal as link}
             <li>
               <a 
                 href={link.href} 
                 class="text-gray-400 hover:text-white transition-colors"
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
               >
                 {link.label}
               </a>
             </li>
-          ))}
+          {/each}
         </ul>
       </div>
     </div>
@@ -146,7 +146,7 @@ const footerLinks = {
           © {currentYear} FinSim. Open source under MIT License.
         </p>
         <p class="text-gray-500 text-sm">
-          A ProjectionLab open source alternative
+          A ProjectionLab open source alternative for Thailand
         </p>
       </div>
     </div>

@@ -1,7 +1,3 @@
----
-
----
-
 <section class="section-padding bg-gradient-to-br from-primary-600 to-primary-700">
   <div class="container-custom">
     <div class="max-w-3xl mx-auto text-center">
@@ -10,7 +6,7 @@
       </h2>
       <p class="text-xl text-primary-100 mb-10">
         Join the community of financially-savvy individuals using FinSim 
-        to plan smarter and retire with confidence.
+        to plan smarter and achieve financial freedom.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a 
@@ -25,10 +21,10 @@
           Start on GitHub
         </a>
         <a 
-          href="#docs" 
+          href="#pricing" 
           class="bg-primary-500 hover:bg-primary-400 text-white font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center gap-2 transition-colors duration-200"
         >
-          Learn More
+          View Pricing
         </a>
       </div>
     </div>

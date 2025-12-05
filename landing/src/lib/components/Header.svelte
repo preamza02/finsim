@@ -1,11 +1,13 @@
----
-const navLinks = [
-  { href: '#features', label: 'Features' },
-  { href: '#docs', label: 'Documentation' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: 'https://github.com/preamza02/finsim', label: 'GitHub' },
-];
----
+<script lang="ts">
+  let mobileMenuOpen = false;
+
+  const navLinks = [
+    { href: '#features', label: 'Features' },
+    { href: '#docs', label: 'Documentation' },
+    { href: '#pricing', label: 'Pricing' },
+    { href: 'https://github.com/preamza02/finsim', label: 'GitHub', external: true },
+  ];
+</script>
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
   <nav class="container-custom">
@@ -23,16 +25,16 @@ const navLinks = [
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
-        {navLinks.map(link => (
+        {#each navLinks as link}
           <a 
             href={link.href} 
             class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
-            target={link.href.startsWith('http') ? '_blank' : undefined}
-            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
           >
             {link.label}
           </a>
-        ))}
+        {/each}
       </div>
 
       <!-- CTA Button -->
@@ -44,9 +46,9 @@ const navLinks = [
 
       <!-- Mobile Menu Button -->
       <button 
-        id="mobile-menu-button" 
         class="md:hidden p-2 text-gray-600 hover:text-gray-900"
         aria-label="Toggle menu"
+        on:click={() => mobileMenuOpen = !mobileMenuOpen}
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -55,29 +57,23 @@ const navLinks = [
     </div>
 
     <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="md:hidden hidden pb-4">
-      {navLinks.map(link => (
-        <a 
-          href={link.href} 
-          class="block py-2 text-gray-600 hover:text-gray-900 font-medium"
-          target={link.href.startsWith('http') ? '_blank' : undefined}
-          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-        >
-          {link.label}
+    {#if mobileMenuOpen}
+      <div class="md:hidden pb-4">
+        {#each navLinks as link}
+          <a 
+            href={link.href} 
+            class="block py-2 text-gray-600 hover:text-gray-900 font-medium"
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+            on:click={() => mobileMenuOpen = false}
+          >
+            {link.label}
+          </a>
+        {/each}
+        <a href="https://github.com/preamza02/finsim" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block mt-4">
+          Get Started
         </a>
-      ))}
-      <a href="https://github.com/preamza02/finsim" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block mt-4">
-        Get Started
-      </a>
-    </div>
+      </div>
+    {/if}
   </nav>
 </header>
-
-<script>
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-  });
-</script>

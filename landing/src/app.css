@@ -6,10 +6,6 @@
   html {
     scroll-behavior: smooth;
   }
-  
-  body {
-    @apply antialiased;
-  }
 }
 
 @layer components {
