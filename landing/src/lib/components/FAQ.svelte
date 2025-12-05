@@ -9,8 +9,8 @@
       answer: 'Great question! If you have unused Day Pass credits and convert to a subscription, your subscription will start after your existing Day Pass credits expire. For example, if you have 2 Day Passes remaining, your subscription billing will begin after those 48 hours.',
     },
     {
-      question: 'Why different pricing for Thailand vs Global?',
-      answer: 'We use Purchasing Power Parity (PPP) pricing. Thai pricing uses PromptPay with minimal fees (~0.5%), while global pricing uses Stripe with higher fees. This lets us offer affordable pricing locally while sustaining development.',
+      question: 'What is the difference between Cloud and Open Source?',
+      answer: 'The Open Source version is full-featured and free forever—you host it yourself. The Cloud version adds convenience: we handle hosting, updates, backups, and provide priority support. Choose Open Source for complete control, or Cloud for hassle-free access.',
     },
     {
       question: 'Is the open source version limited?',
@@ -22,7 +22,7 @@
     },
     {
       question: 'What payment methods do you accept?',
-      answer: 'In Thailand: PromptPay QR (instant, low fees). Globally: Credit/debit cards via Stripe. We\'re adding more options soon.',
+      answer: 'We accept PromptPay QR for instant, low-fee payments. More payment options coming soon.',
     },
     {
       question: 'Is there a free trial?',
