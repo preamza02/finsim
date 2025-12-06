@@ -1,6 +1,11 @@
 // WASM-backed simulation engine wrapper
 let _wasm: any = null;
 
+/**
+ * Loads and caches the WebAssembly package used by the simulation engine.
+ *
+ * @returns The loaded WASM module; subsequent calls return the cached module.
+ */
 async function loadWasm() {
     if (_wasm) return _wasm;
     // dynamic import of the wasm-pack generated package (web target)

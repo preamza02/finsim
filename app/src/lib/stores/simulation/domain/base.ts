@@ -11,6 +11,11 @@ export interface UniqueObject {
 
 export type Id = string;
 
+/**
+ * Create a new unique identifier.
+ *
+ * @returns A new `Id` string formatted as a UUID v4
+ */
 export function GenerateId(): Id {
     return uuidv4();
 }

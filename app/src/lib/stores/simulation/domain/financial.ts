@@ -20,6 +20,13 @@ export const CurrentExchangeRateToSAT: ExchangeRateToSAT = new Map([
 
 
 
+/**
+ * Compute the multiplicative exchange rate to convert an amount from one currency to another.
+ *
+ * @param from - Source currency
+ * @param to - Target currency
+ * @returns The exchange rate such that (amount in `from`) × (returned value) = (equivalent amount in `to`)
+ */
 export function ExchangeRate(from: Currency, to: Currency): number {
     if (from === to) {
         return 1;
@@ -33,6 +40,12 @@ export interface Financial extends DatedObject, UniqueObject {
     currency: Currency;
 }
 
+/**
+ * Determine whether a financial record represents income.
+ *
+ * @param financial - The financial record to evaluate
+ * @returns `true` if `financial.amount` is greater than zero, `false` otherwise.
+ */
 export function isIncome(financial: Financial): boolean {
     return financial.amount > 0;
 }
