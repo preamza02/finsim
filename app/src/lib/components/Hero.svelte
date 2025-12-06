@@ -5,6 +5,18 @@
     <div class="max-w-4xl mx-auto text-center">
       <!-- Badge -->
       <div
+        class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        This Project still Under Development Process
+      </div>
+      <div
         class="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
       >
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">

@@ -27,7 +27,7 @@
         "Start Your Financial Freedom Journey",
       ],
       cta: "Get Started with 7 Day Free Trial",
-      ctaLink: "#",
+      ctaLink: "/wizard/intro",
       highlighted: false,
     },
     {
@@ -44,7 +44,7 @@
         "Cancel anytime",
       ],
       cta: "Get Started with 7 Day Free Trial",
-      ctaLink: "#",
+      ctaLink: "/wizard/intro",
       highlighted: true,
       badge: "Recommend",
     },
@@ -59,7 +59,7 @@
         "Perfect for monthly planning sessions",
       ],
       cta: "Get Started with 7 Day Free Trial",
-      ctaLink: "#",
+      ctaLink: "/wizard/intro",
       highlighted: false,
     },
   ];
@@ -191,7 +191,10 @@
           <div class="mb-6">
             <span class="text-3xl font-bold text-gray-900">฿9,999</span>
           </div>
-          <a href="#" class="btn-primary inline-flex items-center gap-2">
+          <a
+            href="/wizard/intro"
+            class="btn-primary inline-flex items-center gap-2"
+          >
             Get Lifetime Access
           </a>
         </div>
