@@ -11,14 +11,24 @@
     "build:wasm": "cd wasm-simulation && wasm-pack build --release --target web --out-dir ../src/lib/stores/simulation/pkg",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "deploy": "pnpm run build && wrangler pages deploy .svelte-kit/cloudflare"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@sveltejs/adapter-cloudflare": "^7.2.4",
     "@sveltejs/kit": "^2.49.2",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/svelte": "^5.2.9",
+    "@vitest/ui": "^4.0.15",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.1.1",
+    "jsdom": "^27.3.0",
     "postcss": "^8.4.32",
     "shadcn-svelte": "~0.14.3",
     "svelte": "^5.45.8",
@@ -28,6 +38,7 @@
     "tailwindcss": "^3.4.18",
     "typescript": "^5.3.0",
     "vite": "^7.2.7",
+    "vitest": "^4.0.15",
     "wrangler": "^4.53.0"
   },
   "dependencies": {
