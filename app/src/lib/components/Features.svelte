@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "$lib/components/ui";
+
   const features = [
     {
       icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>`,
@@ -47,13 +49,15 @@
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {#each features as feature}
-        <div class="p-6 rounded-xl border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300 bg-white">
-          <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center mb-4">
-            {@html feature.icon}
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-          <p class="text-gray-600">{feature.description}</p>
-        </div>
+        <Card class="hover:border-primary-200 hover:shadow-lg transition-all duration-300">
+          <CardContent class="p-6">
+            <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center mb-4">
+              {@html feature.icon}
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </CardContent>
+        </Card>
       {/each}
     </div>
   </div>

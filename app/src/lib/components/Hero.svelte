@@ -1,13 +1,15 @@
+<script lang="ts">
+  import { Button, Badge } from "$lib/components/ui";
+</script>
+
 <section
   class="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-gray-50 to-white"
 >
   <div class="container-custom">
     <div class="max-w-4xl mx-auto text-center">
-      <!-- Badge -->
-      <div
-        class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
-      >
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+      <!-- Badges -->
+      <Badge class="bg-orange-50 text-orange-700 mb-3" variant="outline">
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path
             fill-rule="evenodd"
             d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -15,11 +17,10 @@
           ></path>
         </svg>
         This Project still Under Development Process
-      </div>
-      <div
-        class="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
-      >
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+      </Badge>
+      <br />
+      <Badge class="bg-primary-50 text-primary-700 mb-6" variant="outline">
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path
             fill-rule="evenodd"
             d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -27,7 +28,7 @@
           ></path>
         </svg>
         Open Source & Free to Self-Host
-      </div>
+      </Badge>
 
       <!-- Headline -->
       <h1
@@ -45,50 +46,54 @@
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/wizard/intro"
-          class="btn-primary inline-flex items-center justify-center gap-2"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        <Button class="bg-primary-600 hover:bg-primary-700">
+          <a
+            href="/wizard/intro"
+            class="inline-flex items-center justify-center gap-2 text-white"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-            />
-          </svg>
-          Start Planning
-        </a>
-        <a
-          href="/sandbox"
-          class="btn-secondary inline-flex items-center justify-center gap-2"
-        >
-          Try Demo
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+              />
+            </svg>
+            Start Planning
+          </a>
+        </Button>
+        <Button variant="outline">
+          <a
+            href="/sandbox"
+            class="inline-flex items-center justify-center gap-2"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-        </a>
+            Try Demo
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </a>
+        </Button>
       </div>
 
       <!-- Social Proof -->

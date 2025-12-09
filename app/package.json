@@ -31,6 +31,7 @@
     "wrangler": "^4.53.0"
   },
   "dependencies": {
+    "bits-ui": "^2.14.4",
     "date-fns": "^4.1.0",
     "echarts": "^6.0.0",
     "uuid": "^13.0.0"

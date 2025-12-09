@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { Button } from "$lib/components/ui";
 
   let mobileMenuOpen = false;
 
@@ -86,14 +87,16 @@
 
       <!-- CTA Button -->
       <div class="hidden md:block">
-        <a
-          href="https://github.com/preamza02/finsim"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary"
-        >
-          Get Started
-        </a>
+        <Button href="https://github.com/preamza02/finsim" class="bg-primary-600 hover:bg-primary-700">
+          <a
+            href="https://github.com/preamza02/finsim"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white"
+          >
+            Get Started
+          </a>
+        </Button>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -135,14 +138,16 @@
             {link.label}
           </a>
         {/each}
-        <a
-          href="https://github.com/preamza02/finsim"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary inline-block mt-4"
-        >
-          Get Started
-        </a>
+        <Button class="bg-primary-600 hover:bg-primary-700 mt-4 w-full">
+          <a
+            href="https://github.com/preamza02/finsim"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white"
+          >
+            Get Started
+          </a>
+        </Button>
       </div>
     {/if}
   </nav>
