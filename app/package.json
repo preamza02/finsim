@@ -8,6 +8,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
+    "build:wasm": "cd wasm-simulation && wasm-pack build --release --target web --out-dir ../src/lib/stores/simulation/pkg",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "deploy": "pnpm run build && wrangler pages deploy .svelte-kit/cloudflare"
@@ -24,5 +25,10 @@
     "typescript": "^5.3.0",
     "vite": "^5.0.0",
     "wrangler": "^4.53.0"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "echarts": "^6.0.0",
+    "uuid": "^13.0.0"
   }
 }
