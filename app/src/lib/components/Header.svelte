@@ -87,15 +87,13 @@
 
       <!-- CTA Button -->
       <div class="hidden md:block">
-        <Button href="https://github.com/preamza02/finsim" class="bg-primary-600 hover:bg-primary-700">
-          <a
-            href="https://github.com/preamza02/finsim"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-white"
-          >
-            Get Started
-          </a>
+        <Button 
+          href="https://github.com/preamza02/finsim"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-primary-600 hover:bg-primary-700 text-white"
+        >
+          Get Started
         </Button>
       </div>
 
@@ -138,15 +136,13 @@
             {link.label}
           </a>
         {/each}
-        <Button class="bg-primary-600 hover:bg-primary-700 mt-4 w-full">
-          <a
-            href="https://github.com/preamza02/finsim"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-white"
-          >
-            Get Started
-          </a>
+        <Button 
+          href="https://github.com/preamza02/finsim"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-primary-600 hover:bg-primary-700 text-white mt-4 w-full"
+        >
+          Get Started
         </Button>
       </div>
     {/if}

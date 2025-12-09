@@ -1,15 +1,26 @@
 <script lang="ts">
 	import { cn } from "$lib/utils/index.js";
-	import type { HTMLButtonAttributes } from "svelte/elements";
+	import type { HTMLButtonAttributes, HTMLAnchorAttributes } from "svelte/elements";
 
-	interface $$Props extends HTMLButtonAttributes {
+	type ButtonProps = HTMLButtonAttributes & {
 		variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
 		size?: "default" | "sm" | "lg" | "icon";
 		class?: string;
-	}
+		href?: never;
+	};
+
+	type LinkProps = HTMLAnchorAttributes & {
+		variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+		size?: "default" | "sm" | "lg" | "icon";
+		class?: string;
+		href: string;
+	};
+
+	type $$Props = ButtonProps | LinkProps;
 
 	export let variant: $$Props["variant"] = "default";
 	export let size: $$Props["size"] = "default";
+	export let href: string | undefined = undefined;
 	let className: string | undefined = undefined;
 	export { className as class };
 
@@ -28,19 +39,36 @@
 		lg: "h-11 rounded-md px-8",
 		icon: "h-10 w-10",
 	};
+
+	const baseClasses = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 </script>
 
-<button
-	type="button"
-	class={cn(
-		"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-		variantClasses[variant],
-		sizeClasses[size],
-		className
-	)}
-	{...$$restProps}
-	on:click
-	on:keydown
->
-	<slot />
-</button>
+{#if href}
+	<a
+		{href}
+		class={cn(
+			baseClasses,
+			variantClasses[variant],
+			sizeClasses[size],
+			className
+		)}
+		{...$$restProps}
+	>
+		<slot />
+	</a>
+{:else}
+	<button
+		type="button"
+		class={cn(
+			baseClasses,
+			variantClasses[variant],
+			sizeClasses[size],
+			className
+		)}
+		{...$$restProps}
+		on:click
+		on:keydown
+	>
+		<slot />
+	</button>
+{/if}
