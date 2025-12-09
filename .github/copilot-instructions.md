@@ -46,7 +46,7 @@ finsim/
 - Using Svelte5 with TailwindCSS for building responsive and accessible user interfaces
 - Design Everything with Responsiveness in mind
 - Follow accessibility best practices (ARIA roles, keyboard navigation, color contrast)
-- Use shadcn-svelte components as a basic for every design
+- Use shadcn-svelte components as a basis for every designn
 - For charts and data visualization, using shadcn-svelte first but if it not applicable consider libraries like ECharts
 
 ### Simulation Engine
@@ -59,7 +59,7 @@ finsim/
 
 - This is monorepo structure
 - Separate concerns into different directories (e.g., `app/` for application code)
-- In svelte application they are 1 main group right now which is `(marketing)` for landing page and everything related to marketing they gonna be 2 more groups later for app and onboarding (edit this if you add these)
++- In svelte application they are 1 main group right now which is `(marketing)` for landing page and everything related to marketing they will be 2 more groups later for app and onboarding (edit this if you add these)
 
 ### Code Quality
 
@@ -72,7 +72,7 @@ finsim/
 
 ### Testing
 
-- Write unit tests for new functionality everty time
+- Write unit tests for new functionality every time
 - Write integration tests for critical paths
 - Write end-to-end tests for user flows
 - Use Vitest for unit tests and Playwright for end-to-end tests
