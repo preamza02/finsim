@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Card, CardContent, Button } from "$lib/components/ui";
+
   const docs = [
     {
       title: 'Getting Started',
@@ -46,40 +48,44 @@
 
     <div class="grid md:grid-cols-3 gap-8">
       {#each docs as doc}
-        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:border-primary-200 hover:shadow-lg transition-all duration-300">
-          <div class="w-12 h-12 bg-accent-100 text-accent-600 rounded-lg flex items-center justify-center mb-6">
-            {@html doc.icon}
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">{doc.title}</h3>
-          <p class="text-gray-600 mb-6">{doc.description}</p>
-          <ul class="space-y-3">
-            {#each doc.links as link}
-              <li>
-                <a href={link.href} class="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2 group">
-                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                  {link.label}
-                </a>
-              </li>
-            {/each}
-          </ul>
-        </div>
+        <Card class="hover:border-primary-200 hover:shadow-lg transition-all duration-300">
+          <CardContent class="p-8">
+            <div class="w-12 h-12 bg-accent-100 text-accent-600 rounded-lg flex items-center justify-center mb-6">
+              {@html doc.icon}
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">{doc.title}</h3>
+            <p class="text-gray-600 mb-6">{doc.description}</p>
+            <ul class="space-y-3">
+              {#each doc.links as link}
+                <li>
+                  <a href={link.href} class="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2 group">
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    {link.label}
+                  </a>
+                </li>
+              {/each}
+            </ul>
+          </CardContent>
+        </Card>
       {/each}
     </div>
 
     <div class="text-center mt-12">
-      <a 
-        href="https://github.com/preamza02/finsim" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="btn-secondary inline-flex items-center gap-2"
-      >
-        View Full Documentation on GitHub
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-        </svg>
-      </a>
+      <Button variant="outline">
+        <a 
+          href="https://github.com/preamza02/finsim" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2"
+        >
+          View Full Documentation on GitHub
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </Button>
     </div>
   </div>
 </section>
