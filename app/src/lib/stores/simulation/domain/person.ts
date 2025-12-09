@@ -21,6 +21,12 @@ export interface Person extends DatedObject, UniqueObject {
     milestones: Milestone[];
 }
 
+/**
+ * Compute a human-readable lifespan for a person.
+ *
+ * @param person - The person whose lifespan is computed from their `startDate` to `endDate`
+ * @returns A string formatted as "X years, Y months, Z days" representing the interval between `startDate` and `endDate`; missing components are shown as `0`
+ */
 export function PersonGetLifeSpan(person: Person): string {
     const duration = intervalToDuration({
         start: person.startDate,
@@ -45,6 +51,13 @@ export interface Family {
     relations: Relation[];
 }
 
+/**
+ * Finds a person within a family by their id.
+ *
+ * @param family - The family to search through
+ * @param id - The identifier of the person to find
+ * @returns The matching `Person` if found, `undefined` otherwise
+ */
 export function GetPersonById(family: Family, id: Id): Person | undefined {
     return family.members.find((person) => person.id === id);
 }

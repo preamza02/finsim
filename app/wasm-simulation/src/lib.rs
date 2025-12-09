@@ -3,6 +3,37 @@ use wasm_bindgen::prelude::*;
 use std::cell::RefCell;
 use chrono::Datelike;
 
+/// Simulates year-by-year financial outcomes for the primary family member based on provided JSON input.
+///
+/// The function parses `family_json`, derives a start year, and for each year up to `years` computes
+/// income (from careers and financial entries), expenses (50% of income in the first year, then inflated),
+/// savings (split 20% to cash, 80% to investments), updates or generates cash/investment wealth buckets,
+/// applies growth to each bucket, and collects yearly summary objects.
+///
+/// # Returns
+/// A JSON string containing an array of yearly result objects with fields: `year`, `age`, `netWorth`,
+/// `totalAssets`, `totalIncome`, `totalExpenses`, and `savings`. Returns `"[]"` if input parsing fails,
+/// the main member is missing, or serialization fails.
+///
+/// # Examples
+///
+/// ```
+/// let family = r#"
+/// {
+///   "members": [
+///     {
+///       "startDate": "1980-01-01T00:00:00Z",
+///       "careers": [
+///         { "startDate": "2000-01-01T00:00:00Z", "financials": [{ "amount": 5000 }] }
+///       ],
+///       "wealth": { "wealthObjects": [] }
+///     }
+///   ]
+/// }
+/// "#;
+/// let out = run_simulation(family, 1);
+/// assert!(out.starts_with('['));
+/// ```
 #[wasm_bindgen]
 pub fn run_simulation(family_json: &str, years: u32) -> String {
     // Parse input JSON into flexible structure
@@ -20,6 +51,41 @@ pub fn run_simulation(family_json: &str, years: u32) -> String {
     let start_year = chrono::Utc::now().year();
 
     // Helper to read year from date string if possible
+    /// Extracts a four-digit year from a serde_json::Value containing a date string.
+    
+    ///
+    
+    /// Attempts to parse the first four characters of the value as an `i32` when the value is a string
+    
+    /// of at least four characters.
+    
+    ///
+    
+    /// # Examples
+    
+    ///
+    
+    /// ```
+    
+    /// use serde_json::json;
+    
+    /// let v = json!("2023-05-10");
+    
+    /// assert_eq!(year_from_date_opt(&v), Some(2023));
+    
+    ///
+    
+    /// let v2 = json!("99-01-01");
+    
+    /// assert_eq!(year_from_date_opt(&v2), None);
+    
+    ///
+    
+    /// let v3 = json!(null);
+    
+    /// assert_eq!(year_from_date_opt(&v3), None);
+    
+    /// ```
     fn year_from_date_opt(v: &Value) -> Option<i32> {
         if let Some(s) = v.as_str() {
             if s.len() >= 4 {
@@ -162,6 +228,18 @@ pub fn run_simulation(family_json: &str, years: u32) -> String {
 }
 
 // Optional: expose a small ping for testing
+/// Simple health-check that responds with "pong".
+///
+/// # Returns
+///
+/// The string `pong`.
+///
+/// # Examples
+///
+/// ```
+/// use app_wasm_simulation::ping;
+/// assert_eq!(ping(), "pong");
+/// ```
 #[wasm_bindgen]
 pub fn ping() -> String {
     "pong".to_string()
