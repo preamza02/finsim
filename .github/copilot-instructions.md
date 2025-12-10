@@ -14,7 +14,8 @@
 ## Tech Stack
 
 - **Framework:** Svelte 5 (with TypeScript) with TailwindCSS for UI components
-- **UI Components:** shadcn-svelte@0.14 (with Tailwind v3)
+- **UI Components:** shadcn-svelte@0.14 (with Tailwind v4)
+- **Authentication:** Auth.js (OAuth 2.0 with GitHub and Google)
 - **Language:** TypeScript and Rust (for performance-critical components like simulation engine)
 - **Package Manager:** pnpm
 - **Testing:** Playwright for end-to-end testing
@@ -62,6 +63,16 @@ finsim/
 - This is monorepo structure
 - Separate concerns into different directories (e.g., `app/` for application code)
 +- In svelte application they are 1 main group right now which is `(marketing)` for landing page and everything related to marketing they will be 2 more groups later for app and onboarding (edit this if you add these)
+
+### Authentication
+
+- Authentication is implemented using Auth.js with OAuth 2.0
+- Supported providers: GitHub and Google
+- Authentication can be disabled for self-hosting by setting `AUTH_ENABLED=false`
+- Auth configuration is in `src/lib/auth/config.ts`
+- Session management is handled via hooks in `src/hooks.server.ts`
+- Protected routes redirect to `/auth/signin` when user is not authenticated
+- See `docs/AUTHENTICATION.md` for detailed setup instructions
 
 ### Code Quality
 
