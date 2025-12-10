@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button, Badge } from "$lib/components/ui";
-  import { CheckCircle2, ClipboardList, Play, Github, Lock, Cloud } from "lucide-svelte";
+  import { CheckCircle2, ClipboardList, Github, Lock, Cloud } from "lucide-svelte";
 </script>
 
 <section
@@ -42,9 +42,14 @@
           <ClipboardList class="w-5 h-5 mr-2" />
           Start Planning
         </Button>
-        <Button href="/sandbox" variant="outline">
-          Try Demo
-          <Play class="w-4 h-4 ml-2" />
+        <Button 
+          href="https://github.com/preamza02/finsim"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="outline"
+        >
+          <Github class="w-4 h-4 mr-2" />
+          Source Code
         </Button>
       </div>
 
