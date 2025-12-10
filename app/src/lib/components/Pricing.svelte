@@ -39,7 +39,7 @@
       name: "Pro Yearly",
       price: "฿999",
       period: "/year",
-      description: "Best value - Save 2 months with annual billing.",
+      description: "Best value - Save over 35% with annual billing.",
       features: [
         "Unlimited Financial Plan",
         "Scenario comparisons",
