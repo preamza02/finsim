@@ -49,6 +49,7 @@ finsim/
 - shadcn-svelte components are located in `src/lib/components/ui/`
 - All marketing page components use shadcn-svelte Button, Card, and Badge components
 - For charts and data visualization, use shadcn-svelte first, but if not applicable consider libraries like ECharts
+- Use lucide-svelte for icons
 
 ### Simulation Engine
 - Implement performance-critical components in Rust, compiled to WebAssembly

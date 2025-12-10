@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "$lib/components/ui";
+  import { Card, CardContent } from "$lib/components/ui";
 
   const features = [
     {
