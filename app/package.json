@@ -42,6 +42,8 @@
     "wrangler": "^4.53.0"
   },
   "dependencies": {
+    "@auth/core": "^0.34.3",
+    "@auth/sveltekit": "^1.11.1",
     "bits-ui": "^2.14.4",
     "date-fns": "^4.1.0",
     "echarts": "^6.0.0",
