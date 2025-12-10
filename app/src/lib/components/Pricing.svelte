@@ -185,7 +185,7 @@
               </div>
               <h3 class="text-2xl font-bold text-gray-900 mb-2">Open Source</h3>
               <div class="flex items-baseline justify-center gap-2 mb-2">
-                <span class="text-4xl font-bold text-primary-600">Host it yourself</span>
+                <span class="text-4xl font-bold text-primary-600">Self-hosted</span>
               </div>
               <p class="text-gray-600">
                 Full-featured, self-hosted on your machine. No limits, no strings
