@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { ChevronDown } from "lucide-svelte";
+
   const faqs = [
     {
       question: "What is the Day Pass?",
@@ -73,23 +75,10 @@
             <span class="text-lg font-medium text-gray-900 pr-4"
               >{faq.question}</span
             >
-            <svg
-              class="w-5 h-5 text-gray-500 flex-shrink-0 transition-transform duration-200 {openIndex ===
-              index
-                ? 'rotate-180'
-                : ''}"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <ChevronDown
+              class="w-5 h-5 text-gray-500 flex-shrink-0 transition-transform duration-200 {openIndex === index ? 'rotate-180' : ''}"
               aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
+            />
           </button>
           {#if openIndex === index}
             <div 

@@ -1,5 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { Button } from "$lib/components/ui";
+  import { Menu } from "lucide-svelte";
 
   let mobileMenuOpen = false;
 
@@ -86,14 +88,14 @@
 
       <!-- CTA Button -->
       <div class="hidden md:block">
-        <a
+        <Button 
           href="https://github.com/preamza02/finsim"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-primary"
+          class="bg-primary-600 hover:bg-primary-700 text-white"
         >
           Get Started
-        </a>
+        </Button>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -104,20 +106,7 @@
         aria-controls="mobile-menu"
         on:click={() => (mobileMenuOpen = !mobileMenuOpen)}
       >
-        <svg
-          class="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
-        </svg>
+        <Menu class="w-6 h-6" aria-hidden="true" />
       </button>
     </div>
 
@@ -135,14 +124,14 @@
             {link.label}
           </a>
         {/each}
-        <a
+        <Button 
           href="https://github.com/preamza02/finsim"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-primary inline-block mt-4"
+          class="bg-primary-600 hover:bg-primary-700 text-white mt-4 w-full"
         >
           Get Started
-        </a>
+        </Button>
       </div>
     {/if}
   </nav>

@@ -11,15 +11,14 @@
 - Financial simulation and projection capabilities
 - Personal finance planning tools
 
-## Tech Stack (Planned)
+## Tech Stack
 
-> **Note:** Tech stack will be defined as the project develops. Update this section when the implementation begins.
-
-- **Framework:** Svelte5 (with TypeScript) with TailwindCSS for UI components
+- **Framework:** Svelte 5 (with TypeScript) with TailwindCSS for UI components
+- **UI Components:** shadcn-svelte@0.14 (with Tailwind v3)
 - **Language:** TypeScript and Rust (for performance-critical components like simulation engine)
 - **Package Manager:** pnpm
-- **Testing:** Vitest for unit testing, Playwright for end-to-end testing
-- **Build Tool:** Vite
+- **Testing:** Playwright for end-to-end testing
+- **Build Tool:** Vite 7
 - **Version Control:** Git with GitHub
 
 ## Repository Structure
@@ -43,11 +42,14 @@ finsim/
 
 ### UI 
 
-- Using Svelte5 with TailwindCSS for building responsive and accessible user interfaces
-- Design Everything with Responsiveness in mind
+- Using Svelte 5 with TailwindCSS for building responsive and accessible user interfaces
+- Design everything with responsiveness in mind
 - Follow accessibility best practices (ARIA roles, keyboard navigation, color contrast)
-- Use shadcn-svelte components as a basis for every designn
-- For charts and data visualization, using shadcn-svelte first but if it not applicable consider libraries like ECharts
+- Use shadcn-svelte components as the basis for all UI components
+- shadcn-svelte components are located in `src/lib/components/ui/`
+- All marketing page components use shadcn-svelte Button, Card, and Badge components
+- For charts and data visualization, use shadcn-svelte first, but if not applicable consider libraries like ECharts
+- Use lucide-svelte for icons
 
 ### Simulation Engine
 - Implement performance-critical components in Rust, compiled to WebAssembly
@@ -72,12 +74,12 @@ finsim/
 
 ### Testing
 
-- Write unit tests for new functionality every time
-- Write integration tests for critical paths
-- Write end-to-end tests for user flows
-- Use Vitest for unit tests and Playwright for end-to-end tests
+- Write end-to-end tests for user flows using Playwright
+- E2e tests are located in `tests/` directory
+- Test configuration is in `playwright.config.ts`
+- Run tests with `pnpm test:e2e` or `pnpm test:e2e:ui`
 - Ensure tests pass before submitting PRs
-- Aim for good test coverage
+- Aim for good test coverage of critical user paths
 
 ### Documentation
 
