@@ -1,22 +1,37 @@
 <script lang="ts">
-import { Button } from '$lib/components/ui';
-import { Github } from 'lucide-svelte';
-import { signIn } from '@auth/sveltekit/client';
-
-let loading = false;
-let provider: string | null = null;
-
-async function handleSignIn(providerName: 'github' | 'google') {
-loading = true;
-provider = providerName;
-try {
-await signIn(providerName, { callbackUrl: '/' });
-} catch (error) {
-console.error('Sign in error:', error);
-loading = false;
-provider = null;
-}
-}
+	import { Button } from '$lib/components/ui';
+	import { Github } from 'lucide-svelte';
+	import { signIn } from '@auth/sveltekit/client';
+	import { page } from '$app/stores';
+	
+	let loading = false;
+	let provider: string | null = null;
+	
+	// Safely get and validate callback URL from query params
+	function getCallbackUrl(): string {
+		const callbackUrl = $page.url.searchParams.get('callbackUrl');
+		
+		// Validate that callback URL is relative (starts with /)
+		// This prevents open redirect attacks
+		if (callbackUrl && callbackUrl.startsWith('/') && !callbackUrl.startsWith('//')) {
+			return callbackUrl;
+		}
+		
+		// Default to home page
+		return '/';
+	}
+	
+	async function handleSignIn(providerName: 'github' | 'google') {
+		loading = true;
+		provider = providerName;
+		try {
+			await signIn(providerName, { callbackUrl: getCallbackUrl() });
+		} catch (error) {
+			console.error('Sign in error:', error);
+			loading = false;
+			provider = null;
+		}
+	}
 </script>
 
 <svelte:head>
