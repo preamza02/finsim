@@ -16,33 +16,17 @@
 
   const cloudPlans = [
     {
-      name: "Free",
-      price: "฿0",
-      period: "Forever",
-      description:
-        "For users who are just starting their financial freedom journey.",
-      features: [
-        "Plan Saved (Read-only)",
-        "1 Financial Plan",
-        "Cash-Flow Projections",
-        "Tax Optimization",
-        "Export Plan as Json, Excel",
-        "Start Your Financial Freedom Journey",
-      ],
-      cta: "Get Started with 7 Day Free Trial",
-      ctaLink: "/wizard/intro",
-      highlighted: false,
-    },
-    {
       name: "Pro",
       price: "฿129",
       period: "/month",
       description: "For power users who plan frequently.",
       features: [
-        "Everything in Free Plan",
         "Unlimited Financial Plan",
         "Scenario comparisons",
         "Simulation engine unlocked",
+        "Cash-Flow Projections",
+        "Tax Optimization",
+        "Export Plan as Json, Excel",
         "Make Me Smile",
         "Cancel anytime",
       ],
@@ -52,14 +36,20 @@
       badge: "Recommend",
     },
     {
-      name: "Day Pass",
-      price: "฿49",
-      period: "24 hours",
-      description: "Perfect for monthly planning sessions.",
+      name: "Pro Yearly",
+      price: "฿999",
+      period: "/year",
+      description: "Best value - Save over 35% with annual billing.",
       features: [
-        "Full Pro access for 24 hours",
-        "Pay as you go",
-        "Perfect for monthly planning sessions",
+        "Unlimited Financial Plan",
+        "Scenario comparisons",
+        "Simulation engine unlocked",
+        "Cash-Flow Projections",
+        "Tax Optimization",
+        "Export Plan as Json, Excel",
+        "Priority support",
+        "Early access to new features",
+        "Cancel anytime",
       ],
       cta: "Get Started with 7 Day Free Trial",
       ctaLink: "/wizard/intro",
@@ -88,8 +78,8 @@
         Simple, Transparent Pricing
       </h2>
       <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-        Open Source model: Self-host for free forever, or use our cloud service
-        with flexible Day Pass pricing.
+        Open Source model: Self-host for free, or use our cloud service
+        with flexible pricing.
       </p>
 
       <!-- Cloud/Open Source Toggle -->
@@ -117,7 +107,7 @@
 
     {#if selectedView === "cloud"}
       <!-- Cloud Pricing -->
-      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {#each cloudPlans as plan}
           <Card
             class="relative {plan.highlighted
@@ -199,8 +189,7 @@
               </div>
               <h3 class="text-2xl font-bold text-gray-900 mb-2">Open Source</h3>
               <div class="flex items-baseline justify-center gap-2 mb-2">
-                <span class="text-4xl font-bold text-primary-600">Free</span>
-                <span class="text-gray-500">forever</span>
+                <span class="text-4xl font-bold text-primary-600">Self-hosted</span>
               </div>
               <p class="text-gray-600">
                 Full-featured, self-hosted on your machine. No limits, no strings
