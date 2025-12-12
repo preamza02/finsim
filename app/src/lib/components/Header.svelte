@@ -3,7 +3,7 @@
   import { Button } from "$lib/components/ui";
   import { Menu, User } from "lucide-svelte";
   import { page } from "$app/stores";
-  import { signOut } from "@auth/sveltekit/client";
+  import { signOut } from "$lib/auth/client";
 
   let mobileMenuOpen = false;
   let userMenuOpen = false;

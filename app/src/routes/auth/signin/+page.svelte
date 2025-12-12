@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui';
 	import { Github } from 'lucide-svelte';
-	import { signIn } from '@auth/sveltekit/client';
+	import { signIn } from '$lib/auth/client';
 	import { page } from '$app/stores';
 	
 	let loading = false;
@@ -25,7 +25,11 @@
 		loading = true;
 		provider = providerName;
 		try {
-			await signIn(providerName, { callbackUrl: getCallbackUrl() });
+			if (providerName === 'github') {
+				await signIn.github(getCallbackUrl());
+			} else {
+				await signIn.google(getCallbackUrl());
+			}
 		} catch (error) {
 			console.error('Sign in error:', error);
 			loading = false;
