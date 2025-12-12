@@ -1,0 +1,64 @@
+# Configuration for auto-labeling PRs based on file changes
+
+# Documentation changes
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['**/*.md', 'docs/**/*']
+
+# UI/Frontend changes
+ui:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/src/**/*.svelte'
+          - 'app/src/**/*.css'
+          - 'app/tailwind.config.js'
+          - 'app/postcss.config.js'
+
+# Backend/Logic changes
+backend:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/src/**/*.ts'
+          - '!app/src/**/*.svelte'
+
+# Test changes
+tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/tests/**/*'
+          - 'app/**/*.test.ts'
+          - 'app/**/*.spec.ts'
+
+# CI/CD changes
+ci-cd:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/workflows/**/*'
+          - '.github/actions/**/*'
+
+# Configuration changes
+configuration:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*.json'
+          - '**/*.yaml'
+          - '**/*.yml'
+          - '**/*.config.js'
+          - '**/*.config.ts'
+          - '.coderabbit.yaml'
+
+# Rust/WASM changes
+wasm:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/wasm-simulation/**/*'
+          - '**/*.rs'
+          - '**/Cargo.toml'
+
+# Dependencies
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/package.json'
+          - 'app/pnpm-lock.yaml'
+          - '**/Cargo.lock'
