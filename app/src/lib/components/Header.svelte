@@ -4,13 +4,14 @@
   import { Menu, User } from "lucide-svelte";
   import { page } from "$app/stores";
   import { signOut } from "@auth/sveltekit/client";
-  import { PUBLIC_AUTH_ENABLED } from "$env/static/public";
 
   let mobileMenuOpen = false;
   let userMenuOpen = false;
   
   $: session = $page.data.session;
-  $: authEnabled = PUBLIC_AUTH_ENABLED === 'true';
+  // Auth is considered enabled if session data is available (even if null)
+  // When auth is disabled, session won't be in page data at all
+  $: authEnabled = 'session' in $page.data;
 
   const navLinks = [
     { href: "/#features", label: "Features" },
