@@ -203,5 +203,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ All automated checks passed! This PR is ready for review by CoderabbitAI and team members.'
+              body: '✅ All automated checks passed! This PR is ready for review by CodeRabbitAI and team members.'
             })
