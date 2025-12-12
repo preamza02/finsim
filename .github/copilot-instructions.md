@@ -29,7 +29,14 @@ finsim/
 ├── .coderabbit.yaml    # CodeRabbit configuration
 ├── .github/
 │   ├── agents/           # Copilot agent configurations
-│   ├── copilot-instructions.md  # This file
+│   ├── workflows/        # GitHub Actions workflows
+│   │   ├── pr-automation.yml      # PR checks and automation
+│   │   ├── manual-checks.yml      # Manual quality checks
+│   │   └── post-merge.yml         # Post-merge notifications
+│   ├── copilot-instructions.md    # This file
+│   ├── labeler.yml       # Auto-labeling configuration
+│   ├── pull_request_template.md   # PR template
+│   ├── WORKFLOWS.md      # Workflow documentation
 │   └── ISSUE_TEMPLATE/   # Issue templates
 │       ├── adding-document.md
 │       ├── bug_report.md
@@ -93,8 +100,37 @@ finsim/
 1. Create feature branches from `main`
 2. Make small, focused commits
 3. Write clear commit messages
-4. Submit PRs for review
-5. Ensure all checks pass before merging
+4. Use the PR template (`.github/pull_request_template.md`) when submitting PRs
+5. Ensure all automated checks pass before merging
+6. Wait for CodeRabbitAI review and address feedback
+
+### GitHub Actions Workflows
+
+The repository includes automated workflows for code quality and PR management:
+
+#### PR Automation (`pr-automation.yml`)
+- **Triggers**: Automatically on PR events (opened, reopened, synchronize, ready_for_review)
+- **Features**:
+  - Auto-labels PRs based on file changes (configured in `.github/labeler.yml`)
+  - Runs code quality checks (Svelte check)
+  - Executes unit and E2E tests
+  - Validates PR descriptions and size
+  - Posts success notification when all checks pass
+- **Note**: Skips draft PRs
+
+#### Manual Quality Checks (`manual-checks.yml`)
+- **Triggers**: Manual via GitHub Actions UI
+- **Options**: Run all checks, format only, test only, or build only
+- **Use Cases**: Pre-commit validation, debugging, isolated testing
+
+#### Post-Merge Actions (`post-merge.yml`)
+- **Triggers**: When PR is merged to `main`
+- **Features**:
+  - Thanks contributors
+  - Auto-closes linked issues (e.g., "Fixes #123")
+  - Can update project boards (if configured)
+
+For detailed workflow documentation, see [`.github/WORKFLOWS.md`](.github/WORKFLOWS.md).
 
 ## Issue Templates
 
