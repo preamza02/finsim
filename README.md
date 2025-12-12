@@ -34,7 +34,11 @@ FinSim is an open-source financial simulation platform providing powerful financ
 
 ## Contributing
 
-Contributions are welcome! Please see our issue templates for:
+Contributions are welcome! 
+
+👉 **New to the project?** Start with our [Quick Start Workflow Guide](.github/QUICKSTART_WORKFLOW.md)
+
+Please see our issue templates for:
 - [Feature Requests](.github/ISSUE_TEMPLATE/feature_request.md)
 - [Bug Reports](.github/ISSUE_TEMPLATE/bug_report.md)
 - [Documentation](.github/ISSUE_TEMPLATE/adding-document.md)
