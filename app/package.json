@@ -23,6 +23,7 @@
     "@sveltejs/adapter-cloudflare": "^7.2.4",
     "@sveltejs/kit": "^2.49.2",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@tailwindcss/postcss": "^4.1.17",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.2.9",
     "@vitest/ui": "^4.0.15",
@@ -42,6 +43,8 @@
     "wrangler": "^4.53.0"
   },
   "dependencies": {
+    "better-auth": "^1.4.6",
+    "better-sqlite3": "^12.5.0",
     "bits-ui": "^2.14.4",
     "date-fns": "^4.1.0",
     "echarts": "^6.0.0",

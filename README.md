@@ -27,6 +27,7 @@ FinSim is an open-source financial simulation platform providing powerful financ
 - 📈 Scenario modeling and comparison
 - 🔐 Privacy-focused (self-hostable)
 - 🌐 Open-source and community-driven
+- 🔒 OAuth authentication (GitHub & Google)
 
 ## Project Status
 
@@ -43,7 +44,61 @@ Contributions are welcome! Please see our issue templates for:
 
 ### Getting Started
 
-> **Coming Soon:** Development setup instructions will be added once the tech stack is finalized.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/preamza02/finsim.git
+   cd finsim/app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up authentication** (optional for development)
+   
+   See the [Authentication Setup Guide](docs/AUTHENTICATION.md) for detailed instructions on configuring GitHub and Google OAuth.
+   
+   Quick start:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your OAuth credentials
+   ```
+   
+   To disable authentication for local development:
+   ```env
+   AUTH_ENABLED=false
+   PUBLIC_AUTH_ENABLED=false
+   ```
+
+4. **Run the development server**
+   ```bash
+   pnpm dev
+   ```
+
+5. **Build for production**
+   ```bash
+   pnpm build
+   ```
+
+### Tech Stack
+
+- **Framework**: SvelteKit with TypeScript
+- **UI Components**: shadcn-svelte with TailwindCSS
+- **Authentication**: Auth.js (OAuth 2.0)
+- **Package Manager**: pnpm
+- **Testing**: Playwright (E2E), Vitest (Unit)
+
+### Authentication
+
+FinSim supports OAuth authentication with GitHub and Google. Authentication can be disabled for self-hosted deployments.
+
+📚 **[Read the Authentication Setup Guide](docs/AUTHENTICATION.md)** for detailed instructions on:
+- Setting up GitHub OAuth
+- Setting up Google OAuth
+- Configuring environment variables
+- Disabling authentication for self-hosting
+- Security best practices
 
 ### AI-Powered Development
 

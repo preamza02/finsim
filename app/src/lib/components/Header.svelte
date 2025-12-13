@@ -1,9 +1,17 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { Button } from "$lib/components/ui";
-  import { Menu } from "lucide-svelte";
+  import { Menu, User } from "lucide-svelte";
+  import { page } from "$app/stores";
+  import { signOut } from "$lib/auth/client";
 
   let mobileMenuOpen = false;
+  let userMenuOpen = false;
+  
+  $: session = $page.data.session;
+  // Auth is considered enabled if session data is available (even if null)
+  // When auth is disabled, session won't be in page data at all
+  $: authEnabled = 'session' in $page.data;
 
   const navLinks = [
     { href: "/#features", label: "Features" },
@@ -27,6 +35,13 @@
     if (mobileMenuOpen && !target.closest("nav")) {
       mobileMenuOpen = false;
     }
+    if (userMenuOpen && !target.closest(".user-menu")) {
+      userMenuOpen = false;
+    }
+  }
+  
+  async function handleSignOut() {
+    await signOut({ callbackUrl: "/" });
   }
 
   onMount(() => {
@@ -86,16 +101,55 @@
         {/each}
       </div>
 
-      <!-- CTA Button -->
+      <!-- CTA Button / User Menu -->
       <div class="hidden md:block">
-        <Button 
-          href="https://github.com/preamza02/finsim"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-primary-600 hover:bg-primary-700 text-white"
-        >
-          Get Started
-        </Button>
+        {#if authEnabled && session?.user}
+          <div class="relative user-menu">
+            <button
+              on:click={() => (userMenuOpen = !userMenuOpen)}
+              class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="User menu"
+              aria-expanded={userMenuOpen}
+            >
+              {#if session.user.image}
+                <img src={session.user.image} alt={session.user.name || 'User'} class="w-8 h-8 rounded-full" />
+              {:else}
+                <div class="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
+                  <User class="w-4 h-4 text-white" />
+                </div>
+              {/if}
+              <span class="text-gray-700 font-medium">{session.user.name || 'User'}</span>
+            </button>
+            
+            {#if userMenuOpen}
+              <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                <a href="/dashboard" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
+                <button
+                  on:click={handleSignOut}
+                  class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  Sign Out
+                </button>
+              </div>
+            {/if}
+          </div>
+        {:else if authEnabled}
+          <Button 
+            href="/auth/signin"
+            class="bg-primary-600 hover:bg-primary-700 text-white"
+          >
+            Sign In
+          </Button>
+        {:else}
+          <Button 
+            href="https://github.com/preamza02/finsim"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-primary-600 hover:bg-primary-700 text-white"
+          >
+            Get Started
+          </Button>
+        {/if}
       </div>
 
       <!-- Mobile Menu Button -->
@@ -124,14 +178,43 @@
             {link.label}
           </a>
         {/each}
-        <Button 
-          href="https://github.com/preamza02/finsim"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-primary-600 hover:bg-primary-700 text-white mt-4 w-full"
-        >
-          Get Started
-        </Button>
+        {#if authEnabled && session?.user}
+          <div class="pt-4 border-t border-gray-200 mt-4">
+            <div class="flex items-center gap-2 mb-2">
+              {#if session.user.image}
+                <img src={session.user.image} alt={session.user.name || 'User'} class="w-8 h-8 rounded-full" />
+              {:else}
+                <div class="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
+                  <User class="w-4 h-4 text-white" />
+                </div>
+              {/if}
+              <span class="text-gray-700 font-medium">{session.user.name || 'User'}</span>
+            </div>
+            <a href="/dashboard" class="block py-2 text-gray-600 hover:text-gray-900 font-medium">Dashboard</a>
+            <button
+              on:click={handleSignOut}
+              class="w-full text-left py-2 text-gray-600 hover:text-gray-900 font-medium"
+            >
+              Sign Out
+            </button>
+          </div>
+        {:else if authEnabled}
+          <Button 
+            href="/auth/signin"
+            class="bg-primary-600 hover:bg-primary-700 text-white mt-4 w-full"
+          >
+            Sign In
+          </Button>
+        {:else}
+          <Button 
+            href="https://github.com/preamza02/finsim"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-primary-600 hover:bg-primary-700 text-white mt-4 w-full"
+          >
+            Get Started
+          </Button>
+        {/if}
       </div>
     {/if}
   </nav>

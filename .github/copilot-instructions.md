@@ -14,7 +14,8 @@
 ## Tech Stack
 
 - **Framework:** Svelte 5 (with TypeScript) with TailwindCSS for UI components
-- **UI Components:** shadcn-svelte@0.14 (with Tailwind v3)
+- **UI Components:** shadcn-svelte@0.14 (with Tailwind v4)
+- **Authentication:** Auth.js (OAuth 2.0 with GitHub and Google)
 - **Language:** TypeScript and Rust (for performance-critical components like simulation engine)
 - **Package Manager:** pnpm
 - **Testing:** Playwright for end-to-end testing
@@ -42,14 +43,27 @@ finsim/
 
 ### UI 
 
-- Using Svelte 5 with TailwindCSS for building responsive and accessible user interfaces
+- Using Svelte 5 with TailwindCSS v4 for building responsive and accessible user interfaces
 - Design everything with responsiveness in mind
 - Follow accessibility best practices (ARIA roles, keyboard navigation, color contrast)
 - Use shadcn-svelte components as the basis for all UI components
 - shadcn-svelte components are located in `src/lib/components/ui/`
+- **ALWAYS take screenshots of UI changes before committing** - Use Playwright to capture the visual state
+- **ALWAYS verify the build succeeds** before committing - Run `pnpm build` to ensure no errors
 - All marketing page components use shadcn-svelte Button, Card, and Badge components
 - For charts and data visualization, use shadcn-svelte first, but if not applicable consider libraries like ECharts
 - Use lucide-svelte for icons
+
+### TailwindCSS v4 Important Notes
+
+**CRITICAL:** TailwindCSS v4 has breaking changes from v3:
+- **DO NOT use `@apply` with custom CSS properties** - It will cause build failures
+- Use `@import "tailwindcss";` instead of `@tailwind` directives
+- Use `@theme` directive for defining custom theme values
+- Convert utility classes to plain CSS when needed
+- CSS-based configuration instead of JavaScript config
+- The `tailwind.config.js` file is kept for backward compatibility but is not used by v4
+- Reference: See `app/src/app.css` for the correct v4 implementation
 
 ### Simulation Engine
 - Implement performance-critical components in Rust, compiled to WebAssembly
@@ -62,6 +76,16 @@ finsim/
 - This is monorepo structure
 - Separate concerns into different directories (e.g., `app/` for application code)
 +- In svelte application they are 1 main group right now which is `(marketing)` for landing page and everything related to marketing they will be 2 more groups later for app and onboarding (edit this if you add these)
+
+### Authentication
+
+- Authentication is implemented using Auth.js with OAuth 2.0
+- Supported providers: GitHub and Google
+- Authentication can be disabled for self-hosting by setting `AUTH_ENABLED=false`
+- Auth configuration is in `src/lib/auth/config.ts`
+- Session management is handled via hooks in `src/hooks.server.ts`
+- Protected routes redirect to `/auth/signin` when user is not authenticated
+- See `docs/AUTHENTICATION.md` for detailed setup instructions
 
 ### Code Quality
 
@@ -93,8 +117,12 @@ finsim/
 1. Create feature branches from `main`
 2. Make small, focused commits
 3. Write clear commit messages
-4. Submit PRs for review
-5. Ensure all checks pass before merging
+4. **Before committing UI changes:**
+   - Take screenshots using Playwright to capture the visual state
+   - Run `pnpm build` to ensure the build succeeds
+   - Verify there are no console errors in the browser
+5. Submit PRs for review
+6. Ensure all checks pass before merging
 
 ## Issue Templates
 
