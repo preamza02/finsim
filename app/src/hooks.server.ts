@@ -24,6 +24,7 @@ const authMiddleware: Handle = async ({ event, resolve }) => {
 		event.locals.user = session?.user ?? null;
 	} catch (error) {
 		// If auth fails to initialize (e.g., missing env vars), log error and continue without auth
+		console.error(error);
 		console.error('\n⚠️  Authentication Error:');
 		console.error('Authentication is enabled (AUTH_ENABLED=true) but failed to initialize.');
 		if (error instanceof Error) {

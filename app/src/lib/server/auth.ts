@@ -9,6 +9,7 @@ import {
 	AUTH_URL
 } from '$env/static/private';
 import { parseEnvBoolean } from '$lib/utils/env';
+import Database from "better-sqlite3";
 
 let _auth: ReturnType<typeof betterAuth> | null = null;
 
@@ -41,8 +42,6 @@ function getAuth() {
 			secret: AUTH_SECRET,
 			trustedOrigins: parseEnvBoolean(AUTH_TRUST_HOST) ? [AUTH_URL] : undefined,
 			database: {
-				// Use in-memory SQLite database (no external DB required)
-				// In production, configure a persistent database
 				type: 'sqlite',
 				url: ':memory:',
 			},
